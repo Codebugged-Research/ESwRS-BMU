@@ -8,6 +8,10 @@ import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   var [collapse1, setCollapse1] = React.useState(false);
+  var [collapse2, setCollapse2] = React.useState(false);
+  var [collapse3, setCollapse3] = React.useState(false);
+  var [collapse4, setCollapse4] = React.useState(false);
+  var [collapse5, setCollapse5] = React.useState(false);
   const router = useRouter();
   return (
     <>
@@ -17,7 +21,7 @@ export default function Sidebar() {
           <button
             className="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
             type="button"
-            onClick={() => setCollapseShow("bg-white m-2 py-3 px-6")}
+            onClick={() => setCollapseShow("bg-blueGray-700 m-2 py-3 px-6")}
           >
             <i className="fas fa-bars"></i>
           </button>
@@ -133,7 +137,7 @@ export default function Sidebar() {
                   <a
                     href="#pablo"
                     className={
-                      "text-s py-3 font-bold block text-white hover:text-blueGray-300" 
+                      "text-s py-3 font-bold block text-white hover:text-blueGray-300"
                       // +
                       // (router.pathname.indexOf("/admin/maps") !== -1
                       //   ? "text-lightBlue-500 hover:text-lightBlue-600"
@@ -217,13 +221,18 @@ export default function Sidebar() {
                   >
                     <i
                       className={
-                        "fas fa-table mr-2 text-sm " +
+                        "fas fa-road mr-2 text-sm " +
                         (router.pathname.indexOf("/admin/tables") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
                     Route Configuration
+                    <i
+                      className={
+                        "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
+                      }
+                    ></i>
                   </a>
                 </Link>
               </li>
@@ -247,6 +256,11 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Rake Configuration
+                    <i
+                      className={
+                        "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
+                      }
+                    ></i>
                   </a>
                 </Link>
               </li>
@@ -270,6 +284,11 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Live Monitoring
+                    <i
+                      className={
+                        "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
+                      }
+                    ></i>
                   </a>
                 </Link>
               </li>
@@ -316,6 +335,11 @@ export default function Sidebar() {
                       }
                     ></i>{" "}
                     Notification &#38; Alerts
+                    <i
+                      className={
+                        "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
+                      }
+                    ></i>
                   </a>
                 </Link>
               </li>
