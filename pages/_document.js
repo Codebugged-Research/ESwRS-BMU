@@ -14,6 +14,10 @@ class MyDocument extends Document {
             sizes="76x76"
             href="/img/brand/apple-icon.png"
           />
+          <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+            rel="stylesheet"
+          />
         </Head>
         <body className="text-blueGray-700 antialiased">
           <div id="page-transition"></div>

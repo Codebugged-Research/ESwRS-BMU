@@ -9,6 +9,7 @@ export default function CardTable({ color }) {
   return (
     <>
       <div
+        style={{ marginTop: "3rem", paddingTop: "3rem" }}
         className={
           "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded " +
           (color === "light" ? "bg-white" : "bg-blueGray-700 text-white")
@@ -41,7 +42,7 @@ export default function CardTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Project
+                  Train Number
                 </th>
                 <th
                   className={
@@ -51,7 +52,7 @@ export default function CardTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Budget
+                  Train Name
                 </th>
                 <th
                   className={
@@ -61,7 +62,7 @@ export default function CardTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Status
+                  Source
                 </th>
                 <th
                   className={
@@ -71,7 +72,7 @@ export default function CardTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Users
+                  Destination
                 </th>
                 <th
                   className={
@@ -81,7 +82,7 @@ export default function CardTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Completion
+                  Options
                 </th>
                 <th
                   className={

@@ -110,12 +110,11 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="equipmentConfiguration">
                   <a
-                    href="#pablo"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("equipmentConfiguration") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -123,7 +122,8 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
+                        (router.pathname.indexOf("equipmentConfiguration") !==
+                        -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -133,9 +133,14 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <button onClick={() => { collapse1 = !collapse1; setCollapse1(collapse1); }}>
+                <button
+                  onClick={() => {
+                    collapse1 = !collapse1;
+                    setCollapse1(collapse1);
+                  }}
+                >
                   <a
-                    href="#pablo"
+                    href="#"
                     className={
                       "text-s py-3 font-bold block text-white hover:text-blueGray-300"
                       // +
@@ -144,11 +149,7 @@ export default function Sidebar() {
                       //   : "text-white hover:text-blueGray-300")
                     }
                   >
-                    <i
-                      className={
-                        "fas fa-user mr-2 text-sm opacity-75"
-                      }
-                    ></i>{" "}
+                    <i className={"fas fa-user mr-2 text-sm opacity-75"}></i>{" "}
                     User Configuration
                     <i
                       className={
@@ -157,15 +158,16 @@ export default function Sidebar() {
                     ></i>
                   </a>
                 </button>
-                {collapse1 ?
+                {collapse1 ? (
                   <ul>
                     <li className="items-center pl-4">
-                      <Link href="/admin/user/adduser" >
+                      <Link href="/admin/user/adduser">
                         <a
                           href="#pablo"
                           className={
                             "text-xs py-3 font-bold block " +
-                            (router.pathname.indexOf("/admin/user/adduser") !== -1
+                            (router.pathname.indexOf("/admin/user/adduser") !==
+                            -1
                               ? "text-lightBlue-500 hover:text-lightBlue-600"
                               : "text-white hover:text-blueGray-300")
                           }
@@ -173,7 +175,9 @@ export default function Sidebar() {
                           <i
                             className={
                               "fas fa-user-check mr-2 text-sm " +
-                              (router.pathname.indexOf("/admin/user/adduser") !== -1
+                              (router.pathname.indexOf(
+                                "/admin/user/adduser"
+                              ) !== -1
                                 ? "opacity-75"
                                 : "text-blueGray-300")
                             }
@@ -188,7 +192,9 @@ export default function Sidebar() {
                           href="#pablo"
                           className={
                             "text-xs py-3 font-bold block " +
-                            (router.pathname.indexOf("/admin/user/manageuser") !== -1
+                            (router.pathname.indexOf(
+                              "/admin/user/manageuser"
+                            ) !== -1
                               ? "text-lightBlue-500 hover:text-lightBlue-600"
                               : "text-white hover:text-blueGray-300")
                           }
@@ -196,7 +202,9 @@ export default function Sidebar() {
                           <i
                             className={
                               "fas fa-users mr-2 text-sm " +
-                              (router.pathname.indexOf("/admin/user/manageuser") !== -1
+                              (router.pathname.indexOf(
+                                "/admin/user/manageuser"
+                              ) !== -1
                                 ? "opacity-75"
                                 : "text-blueGray-300")
                             }
@@ -205,16 +213,18 @@ export default function Sidebar() {
                         </a>
                       </Link>
                     </li>
-                  </ul> : ""
-                }
+                  </ul>
+                ) : (
+                  ""
+                )}
               </li>
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="routeConfiguration">
                   <a
-                    href="#pablo"
+                    href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("routeConfiguration") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -222,27 +232,27 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-road mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
+                        (router.pathname.indexOf("routeConfiguration") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
                     Route Configuration
-                    <i
+                    {/* <i
                       className={
                         "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
                       }
-                    ></i>
+                    ></i> */}
                   </a>
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="rakeConfiguration">
                   <a
-                    href="#pablo"
+                    href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("rakeConfiguration") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -250,27 +260,27 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
+                        (router.pathname.indexOf("rakeConfiguration") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
                     Rake Configuration
-                    <i
+                    {/* <i
                       className={
                         "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
                       }
-                    ></i>
+                    ></i> */}
                   </a>
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="liveMonitoring">
                   <a
                     href="#pablo"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("liveMonitoring") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -278,17 +288,17 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
+                        (router.pathname.indexOf("liveMonitoring") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>{" "}
                     Live Monitoring
-                    <i
+                    {/* <i
                       className={
                         "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
                       }
-                    ></i>
+                    ></i> */}
                   </a>
                 </Link>
               </li>
