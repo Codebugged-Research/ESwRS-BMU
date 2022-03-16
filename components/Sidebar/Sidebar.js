@@ -56,7 +56,7 @@ export default function Sidebar() {
                 <div className="w-6/12">
                   <Link href="/">
                     <a
-                      href="#pablo"
+                      href=""
                       className="md:block text-left md:pb-2 text-white mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     >
                       ESwRS-BMU
@@ -75,7 +75,7 @@ export default function Sidebar() {
               </div>
             </div>
             {/* Form */}
-            <form className="mt-6 mb-4 md:hidden">
+            {/* <form rm className="mt-6 mb-4 md:hidden">
               <div className="mb-3 pt-0">
                 <input
                   type="text"
@@ -83,13 +83,13 @@ export default function Sidebar() {
                   className="border-0 px-3 py-2 h-12 border border-solid  border-blueGray-300 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-base leading-snug shadow-none outline-none focus:outline-none w-full font-normal"
                 />
               </div>
-            </form>
+            </form> */}
             {/* Navigation */}
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link href="/admin/dashboard">
                   <a
-                    href="#pablo"
+                    href=""
                     className={
                       "text-s py-3 font-bold block " +
                       (router.pathname.indexOf("/admin/dashboard") !== -1
@@ -110,11 +110,11 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="equipmentConfiguration">
+                <Link href="equipment_configuration">
                   <a
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("equipmentConfiguration") !== -1
+                      (router.pathname.indexOf("equipment_configuration") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -122,7 +122,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("equipmentConfiguration") !==
+                        (router.pathname.indexOf("equipment_configuration") !==
                         -1
                           ? "opacity-75"
                           : "text-blueGray-300")
@@ -133,32 +133,27 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <button
-                  onClick={() => {
-                    collapse1 = !collapse1;
-                    setCollapse1(collapse1);
-                  }}
-                >
+                <Link href="user_configuration">
                   <a
-                    href="#"
+                    href="user_configuration"
                     className={
-                      "text-s py-3 font-bold block text-white hover:text-blueGray-300"
-                      // +
-                      // (router.pathname.indexOf("/admin/maps") !== -1
-                      //   ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      //   : "text-white hover:text-blueGray-300")
+                      "text-s py-3 font-bold block " +
+                      (router.pathname.indexOf("user_configuration") !== -1
+                        ? "text-lightBlue-500 hover:text-lightBlue-600"
+                        : "text-white hover:text-blueGray-300")
                     }
                   >
                     <i className={"fas fa-user mr-2 text-sm opacity-75"}></i>{" "}
                     User Configuration
-                    <i
+                    {/* <i
                       className={
                         "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
                       }
-                    ></i>
+                    ></i> */}
                   </a>
-                </button>
-                {collapse1 ? (
+                </Link>
+                
+                {/* {collapse1 ? (
                   <ul>
                     <li className="items-center pl-4">
                       <Link href="/admin/user/adduser">
@@ -216,15 +211,15 @@ export default function Sidebar() {
                   </ul>
                 ) : (
                   ""
-                )}
+                )} */}
               </li>
               <li className="items-center">
-                <Link href="routeConfiguration">
+                <Link href="route_configuration">
                   <a
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("routeConfiguration") !== -1
+                      (router.pathname.indexOf("route_configuration") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -232,7 +227,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-road mr-2 text-sm " +
-                        (router.pathname.indexOf("routeConfiguration") !== -1
+                        (router.pathname.indexOf("route_configuration") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -247,12 +242,12 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="rakeConfiguration">
+                <Link href="rake_configuration">
                   <a
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("rakeConfiguration") !== -1
+                      (router.pathname.indexOf("rake_configuration") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -260,7 +255,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("rakeConfiguration") !== -1
+                        (router.pathname.indexOf("rake_configuration") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -275,12 +270,12 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="liveMonitoring">
+                <Link href="live_monitoring">
                   <a
                     href="#pablo"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("liveMonitoring") !== -1
+                      (router.pathname.indexOf("live_monitoring") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -288,7 +283,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("liveMonitoring") !== -1
+                        (router.pathname.indexOf("live_monitoring") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -303,12 +298,12 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="/admin/emergency_live_calls">
                   <a
                     href="#pablo"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("/admin/emergency_live_calls") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -316,7 +311,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
+                        (router.pathname.indexOf("/admin/emergency_live_calls") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -326,12 +321,12 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link href="/admin/tables">
+                <Link href="/admin/notification">
                   <a
                     href="#pablo"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/tables") !== -1
+                      (router.pathname.indexOf("/admin/notification") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -339,7 +334,7 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/tables") !== -1
+                        (router.pathname.indexOf("/admin/notification") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }

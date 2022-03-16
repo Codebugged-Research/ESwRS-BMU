@@ -7,9 +7,9 @@ import TableDropdown from "../Dropdowns/TableDropdown.js";
 
 export default function RakeTable({ color }) {
   return (
-    <div style={{ marginTop: "100px" }}>
+    <div >
       <div
-        style={{ marginTop: "3rem", paddingTop: "3rem" }}
+        style={{ marginTop: "3rem", padding: "1rem" }}
         className={
           "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded " +
           (color === "light" ? "bg-white" : "bg-blueGray-700 text-white")

@@ -37,7 +37,7 @@ export default function Dashboard() {
           latitude: 28.7041,
           zoom: 3.5,
         }}
-        style={{ width: "80vw", height: "100vh" }}
+        style={{ width: "75vw", height: "90vh" }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         mapboxAccessToken="pk.eyJ1IjoiYm5pbWlzaCIsImEiOiJjbDBra2d1bGgwMXVmM2NxbDhmZXdzZnFnIn0.2mAFTvsBGHc-j5SIeBGAeA"
       />
