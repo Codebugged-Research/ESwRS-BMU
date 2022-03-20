@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signOut } from "next-auth/react";
 
 import NotificationDropdown from "../../components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "../../components/Dropdowns/UserDropdown.js";
@@ -114,7 +115,9 @@ export default function Sidebar() {
                   <a
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/equipment_configuration") !== -1
+                      (router.pathname.indexOf(
+                        "/admin/equipment_configuration"
+                      ) !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -138,7 +141,8 @@ export default function Sidebar() {
                     href="/admin/user_configuration"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/user_configuration") !== -1
+                      (router.pathname.indexOf("/admin/user_configuration") !==
+                      -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -152,7 +156,7 @@ export default function Sidebar() {
                     ></i> */}
                   </a>
                 </Link>
-                
+
                 {/* {collapse1 ? (
                   <ul>
                     <li className="items-center pl-4">
@@ -219,7 +223,8 @@ export default function Sidebar() {
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/route_configuration") !== -1
+                      (router.pathname.indexOf("/admin/route_configuration") !==
+                      -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -227,7 +232,9 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-road mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/route_configuration") !== -1
+                        (router.pathname.indexOf(
+                          "/admin/route_configuration"
+                        ) !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -247,7 +254,8 @@ export default function Sidebar() {
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/rake_configuration") !== -1
+                      (router.pathname.indexOf("/admin/rake_configuration") !==
+                      -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -255,7 +263,9 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/rake_configuration") !== -1
+                        (router.pathname.indexOf(
+                          "/admin/rake_configuration"
+                        ) !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -283,7 +293,8 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/live_monitoring") !== -1
+                        (router.pathname.indexOf("/admin/live_monitoring") !==
+                        -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -303,7 +314,9 @@ export default function Sidebar() {
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/emergency_live_calls") !== -1
+                      (router.pathname.indexOf(
+                        "/admin/emergency_live_calls"
+                      ) !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -311,7 +324,9 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/emergency_live_calls") !== -1
+                        (router.pathname.indexOf(
+                          "/admin/emergency_live_calls"
+                        ) !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
@@ -345,6 +360,22 @@ export default function Sidebar() {
                         "pl-3 fas fa-caret-down mr-2 text-sm opacity-75"
                       }
                     ></i> */}
+                  </a>
+                </Link>
+              </li>
+
+              <li className="items-center" onClick={signOut}>
+                <Link href="#">
+                  <a
+                    href="#"
+                    className={
+                      "text-s py-3 font-bold block text-white hover:text-blueGray-300"
+                    }
+                  >
+                    <i
+                      className={"fas fa-table mr-2 text-sm text-blueGray-300"}
+                    ></i>{" "}
+                    Logout
                   </a>
                 </Link>
               </li>

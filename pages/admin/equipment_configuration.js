@@ -1,4 +1,7 @@
 import React from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 // components
 
@@ -9,6 +12,15 @@ import CardTable from "../../components/Cards/CardTable.js";
 import Admin from "../../layouts/Admin.js";
 
 export default function Tables() {
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <>
       <div className="flex flex-wrap mt-4">

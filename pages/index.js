@@ -1,11 +1,37 @@
 import React from "react";
 import Link from "next/link";
-import Router from 'next/router';
+import Router from "next/router";
+import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 // layout for page
 
 import Auth from "../layouts/Auth.js";
+import { useEffect } from "react";
 
 export default function Index() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const router = useRouter();
+
+  const { error } = router.query;
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (error) {
+      setErrMsg("Invaild Credentials");
+    }
+    if (session) {
+      console.log(session);
+      router.push("/admin/dashboard");
+    }
+  }, [error, session]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    signIn("credentials", { username, password });
+  };
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -20,18 +46,28 @@ export default function Index() {
                 </div>
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <form>
+                {errMsg && (
+                  <div className="ErrorText text-center">{errMsg}</div>
+                )}
+
+                <form
+                  autoComplete="off"
+                  onSubmit={submitHandler}
+                  method="post"
+                  action="/api/auth/callback/credentials"
+                >
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
-                      Email
+                      UserName
                     </label>
                     <input
-                      type="email"
+                      onChange={(e) => setUsername(e.target.value)}
+                      type="text"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Email"
+                      placeholder="Username"
                     />
                   </div>
 
@@ -43,29 +79,29 @@ export default function Index() {
                       Password
                     </label>
                     <input
+                      onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="inline-flex items-center cursor-pointer">
-                      <input
+                       <input
                         id="customCheckLogin"
                         type="checkbox"
                         className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
-                      />
-                      <span className="ml-2 text-sm font-semibold text-blueGray-600">
+                      /> 
+                       <span className="ml-2 text-sm font-semibold text-blueGray-600">
                         Remember me
-                      </span>
+                      </span> 
                     </label>
-                  </div>
+                  </div> */}
 
                   <div className="text-center mt-6">
                     <button
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="button"
-                      onClick={(e) => { e.preventDefault(); Router.push('/admin/dashboard'); }}
+                      type="submit"
                     >
                       Sign In
                     </button>
@@ -77,16 +113,19 @@ export default function Index() {
               <div className="w-1/2">
                 <a
                   href="#pablo"
-                  onClick={(e) => { e.preventDefault(); Router.push('/admin/dashboard'); }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    Router.push("/admin/dashboard");
+                  }}
                   className="text-blueGray-200"
                 >
-                  <small>Forgot password?</small>
+                  {/* <small>Forgot password?</small> */}
                 </a>
               </div>
               <div className="w-1/2 text-right">
                 <Link href="/auth/register">
                   <a href="#pablo" className="text-blueGray-200">
-                    <small>Create new account</small>
+                    {/* <small>Create new account</small> */}
                   </a>
                 </Link>
               </div>

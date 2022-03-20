@@ -1,12 +1,22 @@
-import React from 'react'
-import Admin from '../../layouts/Admin'
+import React from "react";
+import Admin from "../../layouts/Admin";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const emergency_live_calls = () => {
-  return (
-    <div>emergency_live_calls</div>
-  )
-}
+  const router = useRouter();
+  const { data: session } = useSession();
 
-export default emergency_live_calls
+  useEffect(() => {
+    if (!session) {
+      router.push("/");
+    }
+  }, []);
 
-emergency_live_calls.layout=Admin
+  return <div>emergency_live_calls</div>;
+};
+
+export default emergency_live_calls;
+
+emergency_live_calls.layout = Admin;

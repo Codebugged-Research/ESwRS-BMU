@@ -1,6 +1,8 @@
 import React from "react";
 import Map from "react-map-gl";
-
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 // // components
 
 // import CardLineChart from "../../components/Cards/CardLineChart.js";
@@ -13,6 +15,15 @@ import Map from "react-map-gl";
 import Admin from "../../layouts/Admin.js";
 
 export default function Dashboard() {
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <>
       {/* <div className="flex flex-wrap">
