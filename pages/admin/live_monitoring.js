@@ -3,6 +3,7 @@ import Admin from "../../layouts/Admin";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import LiveMonitoringCard from "../../components/Cards/LiveMonitoringCard";
 
 const liveMonitoring = () => {
   const router = useRouter();
@@ -14,7 +15,11 @@ const liveMonitoring = () => {
     }
   }, []);
 
-  return <div style={{ marginTop: "100px" }}>liveMonitoring</div>;
+  return (
+    <div style={{ marginTop: "100px" }}>
+      <LiveMonitoringCard />
+    </div>
+  );
 };
 
 export default liveMonitoring;

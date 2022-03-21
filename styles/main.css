@@ -16,6 +16,49 @@
   padding: 10px;
 }
 
+.live_green {
+  color: green;
+}
+
+.rake_grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+}
+
+.rake_grid > div {
+  margin: 10px;
+  padding: 1rem;
+}
+
+.rake_detail_grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  border: solid;
+  border-width: 1px;
+}
+
+.rake_color_code {
+  text-align: center;
+  color: #f4f4f4;
+}
+
+.rake_critial {
+  background-color: red;
+}
+
+.rake_normal {
+  background-color: darkgoldenrod;
+}
+
+.rake_OEM {
+  background-color: blue;
+}
+
+.rake_conflicts {
+  background-color: purple;
+}
+
 .grid-item-1 {
   border: none;
   background-color: #051570ad;
@@ -27,11 +70,113 @@
   transition: all 0.2s ease-in-out;
 }
 
+.days {
+  padding: 0.2rem;
+  background-color: grey;
+}
+
+.coaches_red {
+  background-color: red;
+}
+
 .grid-item-1:hover {
   transform: scale(1.1);
 }
 
-@media (max-width: 800px) {
+.live_monitoring {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  padding: 1rem;
+}
+
+.live_monitoring > div {
+  margin: 0.5rem;
+}
+
+.rake_summary {
+  padding: 1rem;
+}
+
+.rake_summary > h3,
+.coach_details > h2,
+.rake_details > div > h2 {
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.rake_details_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rake_color_scheme {
+  display: flex;
+}
+
+.rake_color_scheme > li {
+  margin: 0.4rem;
+}
+
+/* .rake_summary > form {
+  padding: 1rem;
+} */
+
+.rake_summary > form > div {
+  margin: 1rem 0.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rake_summary > form > div > label {
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.rake_summary > form > div > input {
+  border: none;
+  border-bottom: solid;
+  background-color: #f1f5f9;
+  font-size: 0.9rem;
+}
+
+.rake_summary > form > div > button {
+  border: none;
+  padding: 0.4rem;
+  color: #f4f4f4;
+  border-radius: 0.7rem;
+  background-color: green;
+  transition: all 0.2s ease-in-out;
+}
+
+.rake_summary > form > div > button:hover {
+  transform: scale(0.9);
+}
+
+.coaches_span {
+  background-color: #fff;
+  color: #051570;
+  margin: 0.1rem;
+  padding: 0.1rem;
+  font-weight: 700;
+  border-radius: 0.2rem;
+}
+
+.coach_details > div > div > h3 {
+  font-size: 0.9rem;
+  padding: 1rem 1rem 0rem 1rem;
+}
+
+.equip_grey {
+  background-color: grey;
+}
+
+.rake_dot {
+  padding: 0rem 0.5rem;
+  border-radius: 1rem;
+  color: #f4f4f4;
+}
+
+@media (max-width: 1000px) {
   .grid-container-1 {
     display: grid;
     grid-template-columns: auto auto auto;
