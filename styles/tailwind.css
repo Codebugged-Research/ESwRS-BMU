@@ -58,14 +58,6 @@ body {
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-.ErrorText {
-  padding: 0.5rem;
-  border: none;
-  background-color: red;
-  color: white;
-  margin: 0.5rem;
-}
-
 /*
 Grouping content
 ================

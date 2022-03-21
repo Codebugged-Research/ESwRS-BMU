@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function UserTable({ color }) {
+export default function EmergencyTable({ color }) {
   return (
-    <div>
+    <div style={{ marginTop: "1rem" }}>
       <div
-        style={{ marginTop: "3rem", padding: "1rem" }}
+        style={{ padding: "1rem" }}
         className={
           "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded " +
           (color === "light" ? "bg-white" : "bg-blueGray-700 text-white")
@@ -20,11 +20,8 @@ export default function UserTable({ color }) {
                   (color === "light" ? "text-blueGray-700" : "text-white")
                 }
               >
-                SiteUsers
+                Rake
               </h3>
-              <button className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
-                + Add User
-              </button>
             </div>
           </div>
         </div>
@@ -41,7 +38,7 @@ export default function UserTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Display Name
+                  Train Number
                 </th>
                 <th
                   className={
@@ -51,9 +48,8 @@ export default function UserTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  UserName
+                  Train Name
                 </th>
-
                 <th
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
@@ -62,11 +58,39 @@ export default function UserTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Role
+                  Source
                 </th>
+                <th
+                  className={
+                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                    (color === "light"
+                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                      : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
+                  }
+                >
+                  Destination
+                </th>
+                <th
+                  className={
+                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                    (color === "light"
+                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                      : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
+                  }
+                >
+                  Options
+                </th>
+                <th
+                  className={
+                    "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                    (color === "light"
+                      ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
+                      : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
+                  }
+                ></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody y>
               <tr>
                 <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                   <span
@@ -75,11 +99,18 @@ export default function UserTable({ color }) {
                       +(color === "light" ? "text-blueGray-600" : "text-white")
                     }
                   >
-                    John Doe
+                    012345
                   </span>
                 </th>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Joey
+                  New Delhi - Mumbai
+                </td>
+                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  {/* <i className="fas fa-circle text-orange-500 mr-2"></i> New */}
+                  Delhi
+                </td>
+                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                  <div className="flex">Mumbai</div>
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                   <div className="flex items-center">
@@ -92,22 +123,50 @@ export default function UserTable({ color }) {
                         ></div>
                       </div>
                     </div> */}
-                    Admin
+                    Edit
                   </div>
+                </td>
+                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
+                  {/* <TableDropdown /> */}
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+
+      <div class="grid-container-1">
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150029</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">134024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">153214</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">140024</div>
+        <div class="grid-item-1">155624</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">220024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+        <div class="grid-item-1">150024</div>
+      </div>
     </div>
   );
 }
 
-UserTable.defaultProps = {
+EmergencyTable.defaultProps = {
   color: "light",
 };
 
-UserTable.propTypes = {
+EmergencyTable.propTypes = {
   color: PropTypes.oneOf(["light", "dark"]),
 };

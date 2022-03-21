@@ -1,13 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// components
-
-import TableDropdown from "../Dropdowns/TableDropdown.js";
-
 export default function RakeTable({ color }) {
   return (
-    <div >
+    <div>
       <div
         style={{ marginTop: "3rem", padding: "1rem" }}
         className={

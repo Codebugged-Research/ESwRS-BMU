@@ -1,14 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// components
-
-import TableDropdown from "../Dropdowns/TableDropdown.js";
-
 export default function RouteTable({ color }) {
   return (
     <div style={{ marginTop: "1rem" }}>
-      <div style={{padding:"1rem"}}
+      <div
+        style={{ padding: "1rem" }}
         className={
           "relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded " +
           (color === "light" ? "bg-white" : "bg-blueGray-700 text-white")

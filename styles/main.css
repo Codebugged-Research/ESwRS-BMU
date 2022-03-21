@@ -1,0 +1,32 @@
+.live_call {
+  border: solid;
+}
+
+.ErrorText {
+  padding: 0.5rem;
+  border: none;
+  background-color: red;
+  color: white;
+  margin: 0.5rem;
+}
+
+.grid-container-1 {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  padding: 10px;
+}
+
+.grid-item-1 {
+  border: none;
+  background-color: #051570ad;
+  color: #f4f4f4;
+  margin: 0.3rem;
+  padding: 0.2rem;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.grid-item-1:hover {
+  transform: scale(1.1);
+}
