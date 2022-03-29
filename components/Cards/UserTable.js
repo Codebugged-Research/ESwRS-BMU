@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 export default function UserTable({ color }) {
   return (
@@ -22,9 +23,13 @@ export default function UserTable({ color }) {
               >
                 SiteUsers
               </h3>
-              <button className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
-                + Add User
-              </button>
+              <Link href="/admin/add_user">
+                <a>
+                  <button className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                    + Add User
+                  </button>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
