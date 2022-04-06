@@ -1,11 +1,11 @@
 import React from "react";
-import UserFormCard from "../../components/Cards/UserFormCard";
+import StationFormCard from "../../components/Cards/StationFormCard";
 import Admin from "../../layouts/Admin";
 
 const add_user = () => {
   return (
     <div>
-      <UserFormCard />
+      <SationFormCard />
     </div>
   );
 };

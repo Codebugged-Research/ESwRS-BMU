@@ -1,11 +1,11 @@
 import React from "react";
-import UserFormCard from "../../components/Cards/UserFormCard";
+import RakeFormCard from "../../components/Cards/RakeFormCard";
 import Admin from "../../layouts/Admin";
 
 const add_user = () => {
   return (
     <div>
-      <UserFormCard />
+      <RakeFormCard />
     </div>
   );
 };
