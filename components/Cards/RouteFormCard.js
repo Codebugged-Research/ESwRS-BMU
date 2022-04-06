@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function CardSettings() {
   const [number, setNumber] = useState("");
-  const [name, setName] = useState("");
+  const [name, setName] = useState(0);
   const [train, setTrain] = useState("");
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
@@ -17,14 +17,11 @@ export default function CardSettings() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        data: {
-          routeNumber: number,
-          routeName: name,
-          train: train,
-          source: source,
-          destination: destination,
-          station: station,
-        },
+        routeNumber: parseInt(number),
+        routeName: name,
+        source: source,
+        destination: destination,
+        station: station,
       }),
     }).then((data) => {
       if (data.status === 200) {
@@ -60,7 +57,7 @@ export default function CardSettings() {
                     Route Number
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue=""
                     onChange={(e) => {
