@@ -26,10 +26,8 @@ export default function CardSettings() {
     }).then((data) => {
       if (data.status === 200) {
         confirm("Successfully!");
-        console.log("done");
       } else {
         confirm("Failed");
-        console.log("failed");
       }
     });
   };

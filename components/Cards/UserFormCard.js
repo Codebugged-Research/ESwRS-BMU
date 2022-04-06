@@ -18,19 +18,15 @@ export default function CardSettings() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        data: {
-          name: "name",
-          password: "pass",
-        },
+        name: "name",
+        password: "pass",
       }),
     }).then((data) => {
       console.log(data.status);
       if (data.status === 200) {
-        confirm("Your message has been sent successfully!");
-        // window.location.href = "/admin/add_user";
+        confirm("Successfully!");
       } else {
-        confirm("Not Sent");
-        // window.location.href = "/admin/add_user";
+        confirm("Failed");
       }
     });
   };

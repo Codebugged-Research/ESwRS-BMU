@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function CardSettings() {
+  const [number, setNumber] = useState("");
+  const [name, setName] = useState("");
+  const [coaches, setCoaches] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    fetch("http://143.110.249.208:3000/api/rake", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        rakeNumber: number,
+        name: name,
+      }),
+    }).then((data) => {
+      if (data.status === 200) {
+        confirm("Successfully!");
+      } else {
+        confirm("Failed");
+      }
+    });
+  };
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
@@ -10,7 +34,7 @@ export default function CardSettings() {
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-          <form>
+          <form onSubmit={submitHandler}>
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
               Add Rake
             </h6>
@@ -24,9 +48,10 @@ export default function CardSettings() {
                     Rake Number
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue=""
+                    onChange={(e) => setNumber(e.target.value)}
                   />
                 </div>
               </div>
@@ -42,6 +67,7 @@ export default function CardSettings() {
                     type="Text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue=""
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
               </div>
@@ -57,13 +83,14 @@ export default function CardSettings() {
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue=""
+                    onChange={(e) => setCoaches(e.target.value)}
                   />
                 </div>
               </div>
             </div>
             <button
               className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-              type="button"
+              type="submit"
             >
               Add Rake
             </button>
