@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 
 export default function CardSettings() {
+  const router = useRouter();
+  const { id } = router.query;
+
   const [number, setNumber] = useState(0);
   const [type, setType] = useState("");
 
+  const fetchData = () => {
+    fetch(`http://143.110.249.208:3000/api/coach/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setNumber(data.coachNumber);
+        setType(data.coachtype);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const submitHandler = (e) => {
-    console.log(number);
     e.preventDefault();
-    fetch("http://143.110.249.208:3000/api/coach", {
-      method: "POST",
+    fetch(`http://143.110.249.208:3000/api/coach/${id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -36,7 +52,7 @@ export default function CardSettings() {
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
           <form onSubmit={submitHandler}>
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-              Add A Coach
+              Edit Coach
             </h6>
             <div className="flex flex-wrap">
               <div className="w-full lg:w-6/12 px-4">
@@ -50,8 +66,8 @@ export default function CardSettings() {
                   <input
                     type="Number"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
                     onChange={(e) => setNumber(e.target.value)}
+                    value={number}
                   />
                 </div>
               </div>
@@ -67,6 +83,7 @@ export default function CardSettings() {
                     class="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white :border-blue-600 focus:outline-none"
                     aria-label="Default select example"
                     onChange={(e) => setType(e.target.value)}
+                    value={type}
                   >
                     <option selected value="#">
                       Select Type
@@ -82,7 +99,7 @@ export default function CardSettings() {
               className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="submit"
             >
-              Add Train
+              Add Coach
             </button>
           </form>
         </div>

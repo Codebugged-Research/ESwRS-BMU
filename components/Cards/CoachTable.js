@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-export default function UserTable({ color }) {
+export default function CoachTable({ color }) {
+  const [coaches, setCoaches] = useState([]);
+
+  const fetchData = () => {
+    fetch("http://143.110.249.208:3000/api/coach")
+      .then((response) => response.json())
+      .then((data) => setCoaches(data));
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(coaches);
+
   return (
     <div>
       <div
@@ -21,12 +34,13 @@ export default function UserTable({ color }) {
                   (color === "light" ? "text-blueGray-700" : "text-white")
                 }
               >
-                SiteUsers
+                Coaches
               </h3>
-              <Link href="/admin/add_user">
+
+              <Link href="/admin/add_coach">
                 <a>
                   <button className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
-                    + Add User
+                    + Add Coach
                   </button>
                 </a>
               </Link>
@@ -46,7 +60,7 @@ export default function UserTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Display Name
+                  Coach Number
                 </th>
                 <th
                   className={
@@ -56,7 +70,7 @@ export default function UserTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  UserName
+                  Coach Type
                 </th>
 
                 <th
@@ -67,29 +81,39 @@ export default function UserTable({ color }) {
                       : "bg-blueGray-600 text-blueGray-200 border-blueGray-500")
                   }
                 >
-                  Role
+                  Options
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-                  <span
-                    className={
-                      "ml-3 font-bold " +
-                      +(color === "light" ? "text-blueGray-600" : "text-white")
-                    }
-                  >
-                    John Doe
-                  </span>
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  Joey
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                  <div className="flex items-center">Admin</div>
-                </td>
-              </tr>
+              {coaches.length > 0
+                ? coaches.map((coach) => (
+                    <tr>
+                      <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                        <span
+                          className={
+                            "ml-3 font-bold " +
+                            +(color === "light"
+                              ? "text-blueGray-600"
+                              : "text-white")
+                          }
+                        >
+                          {coach.coachNumber}
+                        </span>
+                      </th>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        {coach.coachtype}
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <div className="flex items-center">
+                          <Link href={`/admin/edit_coach?id=${coach._id}`}>
+                            <a>Edit</a>
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                : null}
             </tbody>
           </table>
         </div>
@@ -98,10 +122,10 @@ export default function UserTable({ color }) {
   );
 }
 
-UserTable.defaultProps = {
+CoachTable.defaultProps = {
   color: "light",
 };
 
-UserTable.propTypes = {
+CoachTable.propTypes = {
   color: PropTypes.oneOf(["light", "dark"]),
 };

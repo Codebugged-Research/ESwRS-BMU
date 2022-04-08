@@ -363,12 +363,12 @@ export default function Sidebar() {
               </li>
 
               <li className="items-center">
-                <Link href="/admin/add_station">
+                <Link href="/admin/station">
                   <a
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/add_station") !== -1
+                      (router.pathname.indexOf("/admin/station") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -376,23 +376,23 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/add_station") !== -1
+                        (router.pathname.indexOf("/admin/station") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>
-                    Add Station
+                    Stations
                   </a>
                 </Link>
               </li>
 
               <li className="items-center">
-                <Link href="/admin/add_coach">
+                <Link href="/admin/coaches">
                   <a
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/add_coach") !== -1
+                      (router.pathname.indexOf("/admin/coaches") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -400,23 +400,23 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/add_coach") !== -1
+                        (router.pathname.indexOf("/admin/coaches") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>
-                    Add Coach
+                    Coaches
                   </a>
                 </Link>
               </li>
 
               <li className="items-center">
-                <Link href="/admin/add_train">
+                <Link href="/admin/train">
                   <a
                     href="#"
                     className={
                       "text-s py-3 font-bold block " +
-                      (router.pathname.indexOf("/admin/add_train") !== -1
+                      (router.pathname.indexOf("/admin/train") !== -1
                         ? "text-lightBlue-500 hover:text-lightBlue-600"
                         : "text-white hover:text-blueGray-300")
                     }
@@ -424,12 +424,12 @@ export default function Sidebar() {
                     <i
                       className={
                         "fas fa-table mr-2 text-sm " +
-                        (router.pathname.indexOf("/admin/add_train") !== -1
+                        (router.pathname.indexOf("/admin/train") !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")
                       }
                     ></i>
-                    Add Train
+                    Trains
                   </a>
                 </Link>
               </li>

@@ -155,7 +155,11 @@ export default function RouteTable({ color }) {
                         <div className="flex items-center">{route.station}</div>
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                        <div className="flex items-center">Edit</div>
+                        <div className="flex items-center">
+                          <Link href={`/admin/edit_route?id=${route._id}`}>
+                            <a>Edit</a>
+                          </Link>
+                        </div>
                       </td>
                     </tr>
                   ))

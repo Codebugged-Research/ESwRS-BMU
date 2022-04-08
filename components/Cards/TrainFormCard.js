@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function CardSettings() {
   const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  const [number, setNumber] = useState(0);
   const [rakeNumber, setRakeNumber] = useState("");
 
   const submitHandler = (e) => {

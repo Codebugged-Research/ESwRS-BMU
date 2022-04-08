@@ -7,7 +7,7 @@ export default function CardSettings() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    fetch("http://143.110.249.208:3000/api/rake", {
+    fetch(`http://143.110.249.208:3000/api/rake/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,6 @@ export default function CardSettings() {
                   <input
                     type="number"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
                     onChange={(e) => setNumber(e.target.value)}
                   />
                 </div>
@@ -66,7 +65,6 @@ export default function CardSettings() {
                   <input
                     type="Text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
@@ -82,7 +80,6 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
                     onChange={(e) => setCoaches(e.target.value)}
                   />
                 </div>

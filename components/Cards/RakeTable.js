@@ -117,7 +117,11 @@ export default function RakeTable({ color }) {
                         {rake.coaches}
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div className="flex items-center">Edit</div>
+                        <div className="flex items-center">
+                          <Link href={`/admin/edit_rake?id=${rake._id}`}>
+                            <a>Edit</a>
+                          </Link>
+                        </div>
                       </td>
                     </tr>
                   ))
