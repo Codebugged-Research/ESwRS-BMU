@@ -135,29 +135,29 @@ export default function EmergencyTable({ color }) {
         </div>
       </div>
 
-      <div class="grid-container-1">
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150029</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">134024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">153214</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">140024</div>
-        <div class="grid-item-1">155624</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">220024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
-        <div class="grid-item-1">150024</div>
+      <div className="grid-container-1">
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150029</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">134024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">153214</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">140024</div>
+        <div className="grid-item-1">155624</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">220024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
+        <div className="grid-item-1">150024</div>
       </div>
     </div>
   );

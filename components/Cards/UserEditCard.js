@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 
 export default function CardSettings() {
+  const router = useRouter();
+  const { Email } = router.query;
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,17 +13,40 @@ export default function CardSettings() {
   const [designation, setDesignation] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
 
+  const fetchData = () => {
+    fetch(`http://143.110.249.208:3000/api/user/search/${Email}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setName(data[0].name);
+        setEmail(data[0].email);
+        setPassword(data[0].password);
+        setPhone(data[0].phone);
+        setGender(data[0].gender);
+        setDesignation(data[0].designation);
+        setPhotoUrl(data[0].photoUrl);
+      });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const submitHandler = (e) => {
-    console.log(name, password, email, phone, gender, designation, photoUrl);
     e.preventDefault();
     fetch("http://143.110.249.208:3000/", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: "name",
-        password: "pass",
+        name: name,
+        email: email,
+        password: password,
+        phone: phone,
+        gender: gender,
+        designation: designation,
+        photoUrl: photoUrl,
       }),
     }).then((data) => {
       console.log(data.status);
@@ -56,7 +83,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    value={name}
                     onChange={(e) => {
                       setName(e.target.value);
                     }}
@@ -74,7 +101,7 @@ export default function CardSettings() {
                   <input
                     type="email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
@@ -90,9 +117,9 @@ export default function CardSettings() {
                     Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
@@ -110,7 +137,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    value={phone}
                     onChange={(e) => {
                       setPhone(e.target.value);
                     }}
@@ -128,7 +155,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    value={gender}
                     onChange={(e) => {
                       setGender(e.target.value);
                     }}
@@ -146,7 +173,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    value={designation}
                     onChange={(e) => {
                       setDesignation(e.target.value);
                     }}
@@ -164,7 +191,7 @@ export default function CardSettings() {
                   <input
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    defaultValue=""
+                    value={photoUrl}
                     onChange={(e) => {
                       setPhotoUrl(e.target.value);
                     }}

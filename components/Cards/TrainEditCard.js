@@ -13,6 +13,7 @@ export default function CardSettings() {
     fetch(`http://143.110.249.208:3000/api/train/${id}`)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setName(data.trainName);
         setNumber(data.trainNumber);
         setRakeNumber(data.rakeNumber);
