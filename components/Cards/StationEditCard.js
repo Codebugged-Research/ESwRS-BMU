@@ -25,7 +25,7 @@ export default function CardSettings() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    fetch("http://143.110.249.208:3000/api/station", {
+    fetch(`http://143.110.249.208:3000/api/station/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

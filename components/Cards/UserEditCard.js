@@ -34,7 +34,7 @@ export default function CardSettings() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    fetch("http://143.110.249.208:3000/", {
+    fetch(`http://143.110.249.208:3000/user/update/${email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
