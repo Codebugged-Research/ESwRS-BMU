@@ -9,8 +9,6 @@ export default function CardSettings() {
   const [station, setStation] = useState("");
 
   const submitHandler = (e) => {
-    console.log(number, name, train, source, destination, station);
-    e.preventDefault();
     fetch("http://143.110.249.208:3000/api/route", {
       method: "POST",
       headers: {

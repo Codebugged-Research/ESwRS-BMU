@@ -14,8 +14,6 @@ export default function UserTable({ color }) {
     fetchData();
   }, []);
 
-  console.log(users);
-
   return (
     <div>
       <div

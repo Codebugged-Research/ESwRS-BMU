@@ -23,7 +23,6 @@ export default function Index() {
       setErrMsg("Invaild Credentials");
     }
     if (session) {
-      console.log(session);
       router.push("/admin/dashboard");
     }
   }, [error, session]);

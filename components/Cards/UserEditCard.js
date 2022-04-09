@@ -17,7 +17,6 @@ export default function CardSettings() {
     fetch(`http://143.110.249.208:3000/api/user/search/${Email}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setName(data[0].name);
         setEmail(data[0].email);
         setPassword(data[0].password);
@@ -49,7 +48,6 @@ export default function CardSettings() {
         photoUrl: photoUrl,
       }),
     }).then((data) => {
-      console.log(data.status);
       if (data.status === 200) {
         confirm("Successfully!");
       } else {

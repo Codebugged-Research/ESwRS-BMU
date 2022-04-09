@@ -5,7 +5,6 @@ export default function CardSettings() {
   const [type, setType] = useState("");
 
   const submitHandler = (e) => {
-    console.log(number);
     e.preventDefault();
     fetch("http://143.110.249.208:3000/api/coach", {
       method: "POST",

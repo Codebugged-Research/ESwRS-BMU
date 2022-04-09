@@ -14,8 +14,6 @@ export default function CoachTable({ color }) {
     fetchData();
   }, []);
 
-  console.log(coaches);
-
   return (
     <div>
       <div

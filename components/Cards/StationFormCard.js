@@ -6,7 +6,6 @@ export default function CardSettings() {
   const [state, setState] = useState("");
 
   const submitHandler = (e) => {
-    console.log(name, city, state);
     e.preventDefault();
     fetch("http://143.110.249.208:3000/api/station", {
       method: "POST",
