@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 
 export default function CardSettings() {
   const router = useRouter();
-  const { Email } = router.query;
+  const { id, Email } = router.query;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ export default function CardSettings() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    fetch(`http://143.110.249.208:3000/user/update/${email}`, {
+    fetch(`http://143.110.249.208:3000/user/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -50,6 +50,7 @@ export default function CardSettings() {
     }).then((data) => {
       if (data.status === 200) {
         confirm("Successfully!");
+        router.push("/user_configuration");
       } else {
         confirm("Failed");
       }
@@ -168,14 +169,19 @@ export default function CardSettings() {
                   >
                     Designation
                   </label>
-                  <input
-                    type="text"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  <select
+                    className="form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding  bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white :border-blue-600 focus:outline-none"
+                    aria-label="Default select example"
                     value={designation}
-                    onChange={(e) => {
-                      setDesignation(e.target.value);
-                    }}
-                  />
+                    onChange={(e) => setDesignation(e.target.value)}
+                  >
+                    <option value="#">Select Type</option>
+
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="employee">Employee</option>
+                    <option value="guest">Guest</option>
+                  </select>
                 </div>
               </div>
               <div className="w-full lg:w-6/12 px-4">

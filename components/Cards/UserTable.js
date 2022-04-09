@@ -163,7 +163,9 @@ export default function UserTable({ color }) {
                       </td>
 
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <Link href={`/admin/edit_user?Email=${user.email}`}>
+                        <Link
+                          href={`/admin/edit_user?Email=${user.email}&id=${user._id}`}
+                        >
                           <a>Edit</a>
                         </Link>
                       </td>

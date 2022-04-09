@@ -32,7 +32,7 @@ export default function CardSettings() {
   const submitHandler = (e) => {
     e.preventDefault();
     fetch(`http://143.110.249.208:3000/api/route/update/${id}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -181,7 +181,7 @@ export default function CardSettings() {
               className="bg-blueGray-700 active:bg-blueGray-600 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
               type="submit"
             >
-              Add Route
+              Edit Route
             </button>
           </form>
         </div>
