@@ -5,19 +5,19 @@ import Head from "next/head";
 import Router from "next/router";
 import { SessionProvider } from "next-auth/react";
 
-// import PageChange from "../components/PageChange/PageChange";
+import PageChange from "../components/PageChange/PageChange";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/tailwind.css";
 import "../styles/main.css";
 
-// Router.events.on("routeChangeStart", (url) => {
-//   document.body.classList.add("body-page-transition");
-//   ReactDOM.render(
-//     <PageChange path={url} />,
-//     document.getElementById("page-transition")
-//   );
-// });
+Router.events.on("routeChangeStart", (url) => {
+  document.body.classList.add("body-page-transition");
+  ReactDOM.render(
+    <PageChange path={url} />,
+    document.getElementById("page-transition")
+  );
+});
 Router.events.on("routeChangeComplete", () => {
   ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
   document.body.classList.remove("body-page-transition");
