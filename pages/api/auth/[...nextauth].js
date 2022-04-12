@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
 export default NextAuth({
+  site: process.env.NEXTAUTH_URL, 
   providers: [
     CredentialsProvider({
       name: "credentials",
