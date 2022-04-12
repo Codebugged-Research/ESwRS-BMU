@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
+import { UseRouter } from "next/router";
+import React, { UseState, UseEffect } from "react";
 
 export default function CardSettings() {
-  const router = useRouter();
+  const router = UseRouter();
   const { id } = router.query;
 
-  const [number, setNumber] = useState(0);
-  const [type, setType] = useState("");
+  const [number, setNumber] = UseState(0);
+  const [type, setType] = UseState("");
 
   const fetchData = () => {
     fetch(`http://143.110.249.208:3000/api/coach/${id}`)
@@ -17,7 +17,7 @@ export default function CardSettings() {
       });
   };
 
-  useEffect(() => {
+  UseEffect(() => {
     fetchData();
   }, []);
 

@@ -1,58 +1,58 @@
 import NextAuth from "next-auth";
-import CredentialProvider from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
+import axios from "axios";
 
 export default NextAuth({
   providers: [
-    CredentialProvider({
+    CredentialsProvider({
       name: "credentials",
-      credentials: {
-        username: {
-          label: "username",
-          type: "text",
-        },
-        password: { label: "Password", type: "password" },
-      },
-      authorize: (credentials) => {
-        // database look up
-        if (
-          credentials.username === "admin" &&
-          credentials.password === "test"
-        ) {
-          return {
-            id: 38934831,
-            name: "Admin",
-            username: "admin@test.com",
-          };
+      authorize: async (credentials) => {
+        try {
+          const user = await axios.post('http://143.110.249.208:3000/api/auth/login',
+          {
+            password: credentials.password,
+            email: credentials.username
+          },
+          {
+            headers: {
+              accept: '*/*',
+              'Content-Type': 'application/json'
+            }
+          })  
+          if (user) {
+            return {status: 'success', data: user}
+          } 
+        } catch (e) {
+          const errorMessage = e
+          // Redirecting to the login page with error message          in the URL
+          throw new Error(errorMessage + '&email=' + credentials.username + '&password=' + credentials.password)
         }
-
-        // login failed
-        return null;
-      },
+  
+      }
     }),
   ],
   callbacks: {
     jwt: ({ token, user }) => {
-      // first time jwt callback is run, user object is available
       if (user) {
-        token.id = user.id;
+        token.accessToken = user.token
       }
-
       return token;
     },
     session: ({ session, token }) => {
       if (token) {
-        session.id = token.id;
+        session.accessToken = token.accessToken;
       }
 
       return session;
     },
   },
-  secret: "test",
+  secret : 'E4AA615993B61ACA9BD342FAE451D', 
   jwt: {
-    secret: "test",
+    secret: "E4AA615993B61ACA9BD342FAE451D",
     encryption: true,
   },
   pages: {
     signIn: "/",
+    error: "/",
   },
 });

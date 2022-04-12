@@ -29,6 +29,7 @@ export default function Index() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(username, password);
     signIn("credentials", { username, password });
   };
   return (
