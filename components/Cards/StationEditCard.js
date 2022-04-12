@@ -37,9 +37,9 @@ export default function CardSettings() {
       }),
     }).then((data) => {
       if (data.status === 200) {
-        confirm("Successfully!");
+        window.confirm("Successfully!");
       } else {
-        confirm("Failed");
+        window.confirm("Failed");
       }
     });
   };
